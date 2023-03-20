@@ -10,8 +10,8 @@ var questionOneD = "Boolean";
 
 var questionTwo = "What variable type should be used to store someone's age?";
 var questionTwoA = "Number";
-var questionTwoB = "String";
-var questionTwoC = "Integer";
+var questionTwoB = "Integer";
+var questionTwoC = "String";
 var questionTwoD = "Boolean";
 
 var questionThree =
@@ -33,31 +33,24 @@ var questionFive =
 var questionFiveA = "True";
 var questionFiveB = "False";
 
-function takeQuiz() {
-  promptQuestion(
-    questionOne,
-    questionOneA,
-    questionOneB,
-    questionOneC,
-    questionOneD,
-    questionOneC
-  );
-  document.getElementById("Choice-C").addEventListener("click", promptQuestion);
-}
-if (promptQuestion) {
-  promptQuestion(
-    questionTwo,
-    questionTwoA,
-    questionTwoB,
-    questionTwoC,
-    questionTwoD,
-    questionTwoA
-  );
-} else {
-  alert("That is incorrect");
-}
+document.getElementById("questionArea").style.display = "none";
 
-takeQuiz();
+document.querySelector("button").addEventListener("click", takeQuiz);
+
+function takeQuiz() {
+  document.getElementById("p").style.display = "none";
+  document.querySelector("button").style.display = "none";
+  document.getElementById("questionArea").style.display = "block";
+  promptQuestionOne();
+  document
+    .getElementById("Choice-C")
+    .addEventListener("click", promptQuestionTwo);
+}
+// if (promptQuestionTwo) {
+//   promptQuestionTwo();
+// } else {
+//   alert("That is incorrect");
+// }
 
 // promptQuestion(
 //   questionThree,
@@ -79,12 +72,20 @@ takeQuiz();
 
 // promptTrueFalse(questionFive, questionFiveA, questionFiveB, questionFiveA);
 
-function promptQuestion(question, a, b, c, d, correctAnswer) {
-  document.getElementById("Question").append(question);
-  document.getElementById("Choice-A").append(a);
-  document.getElementById("Choice-B").append(b);
-  document.getElementById("Choice-C").append(c);
-  document.getElementById("Choice-D").append(d);
+function promptQuestionOne() {
+  document.getElementById("Question").append(questionOne);
+  document.getElementById("Choice-A").append(questionOneA);
+  document.getElementById("Choice-B").append(questionOneB);
+  document.getElementById("Choice-C").append(questionOneC);
+  document.getElementById("Choice-D").append(questionOneD);
+}
+
+function promptQuestionTwo() {
+  document.getElementById("Question").textContent = questionTwo;
+  document.getElementById("Choice-A").textContent = questionTwoA;
+  document.getElementById("Choice-B").textContent = questionTwoB;
+  document.getElementById("Choice-C").textContent = questionTwoC;
+  document.getElementById("Choice-D").textContent = questionTwoD;
 }
 
 function promptTrueFalse(question, a, b, correctAnswer) {
@@ -92,3 +93,8 @@ function promptTrueFalse(question, a, b, correctAnswer) {
   document.getElementById("Choice-A").append(a);
   document.getElementById("Choice-B").append(b);
 }
+
+// function cleanSlate() {
+//   var textRemove = document.getElementsByClassName("list-group-item");
+//   textRemove.remove();
+// }
