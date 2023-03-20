@@ -33,43 +33,51 @@ var questionFive =
 var questionFiveA = "True";
 var questionFiveB = "False";
 
-promptQuestion(
-  questionOne,
-  questionOneA,
-  questionOneB,
-  questionOneC,
-  questionOneD,
-  questionOneC
-);
+function takeQuiz() {
+  promptQuestion(
+    questionOne,
+    questionOneA,
+    questionOneB,
+    questionOneC,
+    questionOneD,
+    questionOneC
+  );
+  document.getElementById("Choice-C").addEventListener("click", promptQuestion);
+}
+if (promptQuestion) {
+  promptQuestion(
+    questionTwo,
+    questionTwoA,
+    questionTwoB,
+    questionTwoC,
+    questionTwoD,
+    questionTwoA
+  );
+} else {
+  alert("That is incorrect");
+}
 
-promptQuestion(
-  questionTwo,
-  questionTwoA,
-  questionTwoB,
-  questionTwoC,
-  questionTwoD,
-  questionTwoA
-);
+takeQuiz();
 
-promptQuestion(
-  questionThree,
-  questionThreeA,
-  questionThreeB,
-  questionThreeC,
-  questionThreeD,
-  questionThreeD
-);
+// promptQuestion(
+//   questionThree,
+//   questionThreeA,
+//   questionThreeB,
+//   questionThreeC,
+//   questionThreeD,
+//   questionThreeD
+// );
 
-promptQuestion(
-  questionFour,
-  questionFourA,
-  questionFourB,
-  questionFourC,
-  questionFourD,
-  questionFourA
-);
+// promptQuestion(
+//   questionFour,
+//   questionFourA,
+//   questionFourB,
+//   questionFourC,
+//   questionFourD,
+//   questionFourA
+// );
 
-promptTrueFalse(questionFive, questionFiveA, questionFiveB, questionFiveA);
+// promptTrueFalse(questionFive, questionFiveA, questionFiveB, questionFiveA);
 
 function promptQuestion(question, a, b, c, d, correctAnswer) {
   document.getElementById("Question").append(question);
